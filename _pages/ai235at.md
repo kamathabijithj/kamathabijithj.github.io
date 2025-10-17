@@ -7,7 +7,7 @@ nav: false
 ---
 
 1. **Tutorial** Intro to Matplotlib and Pandas <br>
-[[Code]](https://github.com/kamath-abhijith/Statistics-for-Data-Science/blob/main/notebooks/01%20Intro.ipynb)
+[[Code]](https://github.com/kamathabijithj/Statistics-for-Data-Science/blob/main/notebooks/01%20Intro.ipynb)
 
 2. **Tutorial** Plotting Distributions <br>
-[[Code]](https://github.com/kamath-abhijith/Statistics-for-Data-Science/blob/main/notebooks/02%20Plotting%20Distributions.ipynb) [[Slides]](/assets/ai235/2-tutorial.pdf)
+[[Code]](https://github.com/kamathabijithj/Statistics-for-Data-Science/blob/main/notebooks/02%20Plotting%20Distributions.ipynb) [[Slides]](/assets/ai235/2-tutorial.pdf)

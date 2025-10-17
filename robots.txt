@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://kamath-abhijith.github.io/sitemap.xml
+Sitemap: https://kamathabijithj.github.io/sitemap.xml

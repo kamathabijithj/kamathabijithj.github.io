@@ -23,10 +23,10 @@ social: false # includes social icons at the bottom of the page
             <span>Research Focus</span>
         </div>
         <p class="intro-text">
-            <strong>I want to challenge the frontiers of computational imaging.</strong>
+            <strong>Challenging the frontiers of<br>computational imaging.</strong>
         </p>
         <p class="intro-description">
-            I work in the intersection of sampling theory, inverse problems and machine learning for event-driven imaging &mdash; <em>with high speed and dynamic range!</em>
+            I work in the intersection of sampling theory, inverse problems and machine learning for event-driven imaging &mdash; <em>with high resolution, speed and dynamic range!</em>
         </p>
         <div class="intro-background">
             <i class="fas fa-university"></i>
@@ -34,33 +34,147 @@ social: false # includes social icons at the bottom of the page
     </div>
 </div>
 
+<!-- Dynamic Fourier Descriptors / Unlimited Sampling Plot -->
+<div id="hero-canvas-container" style="width:100%; height: 300px; margin-bottom: 1rem; position: relative; overflow: hidden;">
+    <canvas id="hero-canvas"></canvas>
+</div>
+
+<script>
+(function() {
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    let width, height;
+    
+    function resize() {
+        width = canvas.parentElement.clientWidth;
+        height = canvas.parentElement.clientHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+    
+    const colors = {
+        theme: '#E30613',
+        text: '#000000',
+        grid: '#e0e0e0'
+    };
+    
+    const threshold = 60;
+    const wave = [];
+    const rawWave = [];
+    const maxWavePoints = 20000;
+    let time = 0;
+    
+    // State for neusamp logic
+    let y_prev = null;
+    let currentOffset = 0;
+    
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+        
+        const cy = height / 2; // Center Y
+        
+        // Calculate signal value (Sum of Sinusoids)
+        let rawSignal = 60 * Math.sin(time * 1.0) + 
+                        40 * Math.sin(time * 1.618) + 
+                        20 * Math.sin(time * 2.718);
+        
+        // Apply "Reset" logic (neusamp)
+        if (y_prev === null) {
+            y_prev = rawSignal;
+        }
+
+        let z = rawSignal - y_prev;
+        
+        if (z >= threshold) {
+            currentOffset += threshold;
+            y_prev = rawSignal;
+        } else if (z <= -threshold) {
+            currentOffset -= threshold;
+            y_prev = rawSignal;
+        }
+        
+        let processedSignal = rawSignal - currentOffset;
+        
+        // Store wave point
+        wave.unshift(processedSignal);
+        rawWave.unshift(rawSignal);
+        if (wave.length > maxWavePoints) {
+            wave.pop();
+            rawWave.pop();
+        }
+        
+        const waveStartX = 50;
+        
+        // Draw Threshold Lines
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+        ctx.setLineDash([5, 5]);
+        ctx.moveTo(waveStartX, cy - threshold);
+        ctx.lineTo(width, cy - threshold);
+        ctx.moveTo(waveStartX, cy + threshold);
+        ctx.lineTo(width, cy + threshold);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        
+        // Draw Raw Wave
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+        ctx.lineWidth = 2;
+        
+        for (let i = 0; i < rawWave.length; i++) {
+            const px = waveStartX + i * 1.5;
+            const py = cy + rawWave[i];
+            
+            if (px > width) break;
+            
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+
+        // Draw Folded Wave
+        ctx.beginPath();
+        ctx.strokeStyle = colors.theme;
+        ctx.lineWidth = 2;
+        
+        for (let i = 0; i < wave.length; i++) {
+            const px = waveStartX + i * 1.5; // Spacing
+            const py = cy + wave[i];
+            
+            if (px > width) break;
+            
+            // Handle jumps (don't draw line across the jump)
+            if (i > 0) {
+                const prevPy = cy + wave[i-1];
+                if (Math.abs(py - prevPy) > threshold * 0.8) {
+                    ctx.stroke();
+                    ctx.beginPath();
+                }
+            }
+            
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+        
+        time += 0.02;
+        requestAnimationFrame(draw);
+    }
+    
+    draw();
+})();
+</script>
+
 <style>
 /* Enhanced Intro Section */
 .intro-section {
-  background-color: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 12px;
-  padding: 2rem;
+  padding: 0;
   margin: 2rem 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
-}
-
-.intro-section:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.intro-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--global-theme-color), #667eea);
 }
 
 .intro-content {
@@ -71,13 +185,15 @@ social: false # includes social icons at the bottom of the page
 .intro-highlight {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #d3d3d3, #a9a9a9);
-  color: #333333;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  background: transparent;
+  color: var(--global-theme-color);
+  padding: 0;
+  border-radius: 0;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .intro-highlight i {
@@ -103,10 +219,9 @@ social: false # includes social icons at the bottom of the page
   align-items: center;
   font-size: 0.95rem;
   color: var(--global-text-color-light);
-  padding: 0.8rem 1rem;
-  background-color: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 8px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
 
 .intro-background i {
@@ -114,25 +229,9 @@ social: false # includes social icons at the bottom of the page
   color: var(--global-theme-color);
 }
 
-/* Dark mode compatibility */
-html[data-theme="dark"] .intro-section {
-  background-color: var(--global-card-bg-color);
-  border-color: var(--global-divider-color);
-}
-
-html[data-theme="dark"] .intro-section:hover {
-  box-shadow: 0 8px 25px rgba(255,255,255,0.1);
-}
-
-html[data-theme="dark"] .intro-background {
-  background-color: var(--global-card-bg-color);
-  border-color: var(--global-divider-color);
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
   .intro-section {
-    padding: 1.5rem;
     margin: 1.5rem 0;
   }
   
@@ -146,10 +245,6 @@ html[data-theme="dark"] .intro-background {
 }
 
 @media (max-width: 600px) {
-  .intro-section {
-    padding: 1.25rem;
-  }
-  
   .intro-text {
     font-size: 1.1rem;
   }

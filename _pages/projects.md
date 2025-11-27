@@ -37,8 +37,8 @@ horizontal: false
 }
 
 .category-header {
-  color: black;
-  border-bottom: 2px solid black;
+  color: var(--global-text-color);
+  border-bottom: 2px solid var(--global-theme-color);
   padding-bottom: 0.5rem;
   margin-bottom: 2rem !important;
   font-weight: 600;
@@ -48,20 +48,15 @@ horizontal: false
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
   margin-bottom: 3rem;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 0;
   height: 100%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -81,44 +76,23 @@ horizontal: false
   cursor: pointer;
 }
 
-.project-card.clickable:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  border-color: var(--global-theme-color);
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--global-theme-color), #667eea);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.project-card.clickable:hover::before {
-  opacity: 1;
-}
-
 .project-header {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   height: 24px; /* Set a fixed height */
 }
 
 .project-code {
-  background: linear-gradient(135deg, var(--global-theme-color), #8696fe);
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  background: transparent;
+  color: var(--global-theme-color);
+  padding: 0;
+  border-radius: 0;
   font-size: 0.85rem;
   font-weight: 600;
   min-width: fit-content;
+  text-transform: uppercase;
 }
 
 .project-link-icon {
@@ -139,18 +113,13 @@ horizontal: false
 .project-image-container {
   margin-bottom: 1rem;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .project-image {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.3s ease;
-}
-
-.project-card.clickable:hover .project-image {
-  transform: scale(1.05);
 }
 
 .project-title {
@@ -184,11 +153,10 @@ horizontal: false
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--global-bg-color);
+  background-color: transparent;
   color: var(--global-text-color);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  border: 1px solid var(--global-divider-color);
+  padding: 0;
+  border: none;
   font-weight: 500;
   font-size: 0.85rem;
   text-decoration: none !important;
@@ -196,9 +164,7 @@ horizontal: false
 }
 
 .github-button:hover {
-  background-color: var(--global-theme-color);
-  color: white;
-  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
 }
 
 .github-button .fa-star {
@@ -208,25 +174,7 @@ horizontal: false
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2rem;
   }
-  
-  .project-card {
-    padding: 1.25rem;
-  }
-}
-
-html[data-theme="dark"] .project-card {
-  background-color: var(--global-card-bg-color);
-  border-color: var(--global-divider-color);
-}
-
-html[data-theme="dark"] .project-card.clickable:hover {
-  box-shadow: 0 8px 25px rgba(255,255,255,0.1);
-}
-
-html[data-theme="dark"] .github-button {
-  background-color: var(--global-card-bg-color);
-  border-color: var(--global-divider-color);
 }
 </style>

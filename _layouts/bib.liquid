@@ -5,14 +5,14 @@
     <div class="col-sm-2 {% if entry.preview %}preview{% else %}abbr{% endif %}">
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
-          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+          <img class="preview" src="{{ entry.preview }}">
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           {%
             include figure.liquid
             path=entry_path
             sizes = "200px"
-            class="preview z-depth-1 rounded"
+            class="preview"
             zoomable=false
             alt=entry.preview
           %}
@@ -272,7 +272,7 @@
     {% if entry.video %}
       <!-- Hidden video block -->
       <div class="abstract hidden">
-        <div style="text-align: center;">{% include video.liquid path=entry.video class="img-fluid rounded z-depth-1" controls=true %}</div>
+        <div style="text-align: center;">{% include video.liquid path=entry.video class="img-fluid" controls=true %}</div>
       </div>
     {% endif %}
   </div>

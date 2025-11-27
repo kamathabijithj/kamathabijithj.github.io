@@ -147,6 +147,15 @@ blockquote {
 
 .card {
   background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
 
   img {
     width: 100%;
@@ -182,7 +191,6 @@ blockquote {
   .more-info {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: monospace;
 
     p {
       display: inline-block;
@@ -231,12 +239,14 @@ blockquote {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
-  opacity: 0.95;
+  opacity: 1;
 }
 
 .navbar .dropdown-menu {
   background-color: var(--global-bg-color);
   border: 1px solid var(--global-divider-color);
+  border-radius: 0;
+  box-shadow: none;
 
   a:not(.active) {
     color: var(--global-text-color);
@@ -1080,4 +1090,18 @@ nav[data-toggle="toc"] {
 
 #toc-sidebar {
   z-index: 1;
+}
+
+// Buttons
+.btn {
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+  border: 1px solid transparent;
+
+  &:hover {
+    box-shadow: none;
+    transform: none;
+    border-color: var(--global-text-color);
+  }
 }

@@ -96,18 +96,7 @@ layout: default
 }
 
 .profile {
-  background-color: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   margin-bottom: 2rem;
-  transition: all 0.3s ease;
-}
-
-.profile:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 /* Section Headers */
@@ -126,18 +115,7 @@ h2 i {
 
 /* News and Posts Styling */
 .news {
-  background-color: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   margin-bottom: 2rem;
-  transition: all 0.3s ease;
-}
-
-.news:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .news .table {
@@ -158,45 +136,11 @@ h2 i {
 
 /* Publications Styling */
 .publications {
-  background-color: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   margin-bottom: 2rem;
-  transition: all 0.3s ease;
-}
-
-.publications:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-/* Dark mode compatibility */
-html[data-theme="dark"] .profile,
-html[data-theme="dark"] .news,
-html[data-theme="dark"] .publications {
-  background-color: var(--global-card-bg-color);
-  border-color: var(--global-divider-color);
-}
-
-html[data-theme="dark"] .profile:hover,
-html[data-theme="dark"] .news:hover,
-html[data-theme="dark"] .publications:hover {
-  box-shadow: 0 8px 25px rgba(255,255,255,0.1);
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .profile {
-    padding: 1.25rem;
-  }
-  
-  .news,
-  .publications {
-    padding: 1.25rem;
-  }
-  
   h2 {
     font-size: 1.25rem;
   }

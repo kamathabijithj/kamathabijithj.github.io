@@ -18,19 +18,14 @@ social: false # includes social icons at the bottom of the page
 
 <div class="intro-section">
     <div class="intro-content">
-        <div class="intro-highlight">
-            <i class="fas fa-rocket"></i>
-            <span>Research Focus</span>
-        </div>
-        <p class="intro-text">
-            <strong>Challenging the frontiers of<br>computational imaging.</strong>
-        </p>
+        <div class="intro-highlight">Research Focus</div>
+        <h2 class="intro-text">Challenging the frontiers of<br>computational imaging</h2>
         <p class="intro-description">
-            I work in the intersection of sampling theory, inverse problems and machine learning for event-driven imaging &mdash; <em>with high resolution, speed and dynamic range!</em>
+            I work at the intersection of sampling theory, inverse problems and machine learning for event-driven imaging—with high resolution, speed and dynamic range.
         </p>
         <div class="intro-background">
-            <i class="fas fa-university"></i>
-            <span>Previously at <a href="https://www.nitk.ac.in" target="_blank" rel="noopener">National Institute of Technology Karnataka</a>.</span>    </div>
+            <span>Previously at <a href="https://www.nitk.ac.in" target="_blank" rel="noopener">National Institute of Technology Karnataka</a></span>
+        </div>
     </div>
 </div>
 
@@ -170,87 +165,93 @@ social: false # includes social icons at the bottom of the page
 </script>
 
 <style>
-/* Enhanced Intro Section */
+/* Swiss Design Intro Section */
 .intro-section {
   padding: 0;
-  margin: 2rem 0;
+  margin: 3rem 0 4rem 0;
   position: relative;
 }
 
 .intro-content {
-  max-width: 700px;
+  max-width: 54rem;
   margin: 0 auto;
 }
 
 .intro-highlight {
-  display: inline-flex;
-  align-items: center;
-  background: transparent;
+  display: inline-block;
   color: var(--global-theme-color);
   padding: 0;
-  border-radius: 0;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.intro-highlight i {
-  margin-right: 0.5rem;
+  letter-spacing: 0.18em;
+  border-left: 2px solid var(--global-theme-color);
+  padding-left: 0.75rem;
 }
 
 .intro-text {
-  font-size: 1.3rem;
-  line-height: 1.4;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.3;
   color: var(--global-text-color);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.01em;
 }
 
 .intro-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--global-text-color-light);
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--global-text-color);
+  margin-bottom: 2rem;
+  letter-spacing: 0.01em;
 }
 
 .intro-background {
   display: flex;
   align-items: center;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: var(--global-text-color-light);
   padding: 0;
   background-color: transparent;
   border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
-.intro-background i {
-  margin-right: 0.5rem;
-  color: var(--global-theme-color);
+#hero-canvas-container {
+  margin-bottom: 4rem !important;
+  border: 1px solid var(--global-divider-color);
+  background-color: var(--global-bg-color);
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .intro-section {
-    margin: 1.5rem 0;
+    margin: 2rem 0 3rem 0;
   }
   
   .intro-text {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   
   .intro-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  #hero-canvas-container {
+    margin-bottom: 3rem !important;
   }
 }
 
 @media (max-width: 600px) {
   .intro-text {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   
   .intro-description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
 </style>

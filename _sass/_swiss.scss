@@ -1,12 +1,14 @@
 /*******************************************************************************
- * Modern Swiss-style overrides
+ * Modern Swiss-style overrides with Apple-inspired refinements
  ******************************************************************************/
 
 /* Overall typographic rhythm */
 body {
   font-weight: 300;
   letter-spacing: 0.01em;
-  line-height: 1.6;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -17,45 +19,79 @@ h5,
 h6 {
   letter-spacing: 0.04em;
   line-height: 1.2;
+  font-weight: 500;
 }
 
 /* Content width and breathing room */
 .container {
   max-width: $max-content-width;
-  padding-top: 3rem;
+  padding-top: 2.5rem;
   padding-bottom: 4rem;
 }
 
-/* Flat navigation bar */
+/* Modern frosted glass navigation bar - Apple inspired */
 .navbar {
-  border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  min-height: 36px;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html[data-theme="dark"] .navbar {
+  background: rgba(29, 29, 31, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .navbar-brand {
-  font-size: 0.8rem;
+  font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.7;
 }
 
 .navbar-nav .nav-link {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.6rem !important;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Make cards/post previews extremely minimal */
+.navbar-nav .nav-link:hover {
+  opacity: 0.7;
+}
+
+/* Modern cards with subtle depth */
 .card,
 .post-list li {
-  border-radius: 0;
-  box-shadow: none;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .card {
-  border-color: var(--global-divider-color);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 252, 1) 100%);
+}
+
+html[data-theme="dark"] .card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(38, 38, 40, 1) 0%, rgba(32, 32, 34, 1) 100%);
 }
 
 /* Page/post container: narrow column with strong grid */
@@ -70,12 +106,15 @@ h6 {
 }
 
 .post-title {
-  font-size: 2.1rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   margin-bottom: 1rem;
   position: relative;
+  background: linear-gradient(135deg, var(--global-text-color) 0%, var(--global-text-color-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .post-title::after {
@@ -83,9 +122,10 @@ h6 {
   position: absolute;
   left: 0;
   bottom: -0.75rem;
-  width: 3rem;
+  width: 2.5rem;
   height: 2px;
-  background: var(--global-theme-color);
+  background: linear-gradient(90deg, var(--global-theme-color) 0%, rgba(227, 6, 19, 0.4) 100%);
+  border-radius: 1px;
 }
 
 .post-header .desc,
@@ -156,21 +196,35 @@ h6 {
   color: var(--global-text-color-light);
 }
 
-/* Publication action buttons as Swiss micro-labels */
+/* Publication action buttons - refined with subtle gradients */
 .publications .links a.btn {
-  border-radius: 0;
+  border-radius: 6px;
   border-width: 1px;
-  border-color: var(--global-divider-color);
-  background: transparent;
-  font-size: 0.65rem;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 248, 250, 1) 100%);
+  font-size: 0.62rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  padding: 0.15rem 0.6rem;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.65rem;
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="dark"] .publications .links a.btn {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(60, 60, 62, 1) 0%, rgba(50, 50, 52, 1) 100%);
 }
 
 .publications .links a.btn:hover {
   border-color: var(--global-theme-color);
   color: var(--global-theme-color);
+  background: linear-gradient(180deg, rgba(255, 248, 248, 1) 0%, rgba(255, 245, 245, 1) 100%);
+  box-shadow: 0 2px 6px rgba(227, 6, 19, 0.15);
+  transform: translateY(-1px);
+}
+
+html[data-theme="dark"] .publications .links a.btn:hover {
+  background: linear-gradient(180deg, rgba(70, 50, 52, 1) 0%, rgba(60, 45, 47, 1) 100%);
 }
 
 /* Blog index: very flat list */
@@ -186,20 +240,48 @@ h6 {
   font-size: 0.7rem;
 }
 
-/* Links: only subtle underline on hover */
+/* Links: smooth color transitions */
 a {
   text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  opacity: 0.75;
 }
 
-/* Footer as simple baseline */
+/* Footer - refined with subtle gradient */
 footer.sticky-bottom {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  background: linear-gradient(180deg, rgba(250, 250, 252, 0) 0%, rgba(245, 245, 247, 0.5) 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="dark"] footer.sticky-bottom {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(20, 20, 22, 0.5) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(227, 6, 19, 0.15);
+  color: var(--global-text-color);
+}
+
+/* Focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--global-theme-color);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

@@ -35,8 +35,8 @@ span:not([class*="fa"]):not([class*="ai"]):not([class*="icon"]):not([class*="mat
 }
 
 body.fixed-top-nav {
-  // Add some padding for the nav-bar.
-  padding-top: 56px;
+  // Add some padding for the nav-bar (reduced for thinner navbar).
+  padding-top: 40px;
 }
 
 body.sticky-bottom-footer {

@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student @ <a href="https://spectrum-lab-iisc.github.io" target="_blank" rel="noopener">Spectrum Lab</a>, <a href="http://iisc.ac.in" target="_blank" rel="noopener">Indian Institute of Science</a>
+subtitle: PhD Student @ <a href="https://spectrum-lab-iisc.github.io" target="_blank" rel="noopener">Spectrum Lab</a>, <a href="http://iisc.ac.in" target="_blank" rel="noopener">Indian Institute of Science</a><br>Currently visiting <a href="https://bigwww.epfl.ch/" target="_blank" rel="noopener">Biomedical Imaging Group, EPFL</a>
 
 profile:
     align: right
@@ -12,7 +12,7 @@ profile:
 
 news: true # includes a list of news items
 latest_posts: true # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
@@ -21,7 +21,7 @@ social: false # includes social icons at the bottom of the page
         <div class="intro-highlight">Research Focus</div>
         <h2 class="intro-text">Challenging the frontiers of<br>computational imaging</h2>
         <p class="intro-description">
-            I work at the intersection of sampling theory, inverse problems and machine learning for event-driven imaging—with high resolution, speed and dynamic range.
+            I work at the intersection of sampling theory, inverse problems and machine learning for computational imaging.
         </p>
         <div class="intro-background">
             <span>Previously at <a href="https://www.nitk.ac.in" target="_blank" rel="noopener">National Institute of Technology Karnataka</a></span>
@@ -30,6 +30,8 @@ social: false # includes social icons at the bottom of the page
 </div>
 
 <!-- Dynamic Fourier Descriptors / Unlimited Sampling Plot -->
+<!-- Hidden during PhD to PostDoc transition -->
+<!--
 <div id="hero-canvas-container" style="width:100%; height: 300px; margin-bottom: 1rem; position: relative; overflow: hidden;">
     <canvas id="hero-canvas"></canvas>
 </div>
@@ -163,6 +165,7 @@ social: false # includes social icons at the bottom of the page
     draw();
 })();
 </script>
+-->
 
 <style>
 /* Swiss Design Intro Section */

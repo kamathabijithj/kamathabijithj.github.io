@@ -6,9 +6,9 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Abijith
 middle_name: J.
 last_name: Kamath
-email: abijithj@iisc.ac.in
+email: abijith.kamath@epfl.ch
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  PhD Student @ [Indian Institute of Science](https://iisc.ac.in).
+  Postdoctoral Researcher @ [Biomedical Imaging Group, EPFL](https://bigwww.epfl.ch) & [CIBM](https://cibm.ch).
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -49,7 +49,7 @@ navbar_fixed: true
 footer_fixed: true
 
 # Dimensions
-max_width: 800px
+max_width: 660px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -103,7 +103,7 @@ zotero_username: # your zotero username
 wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
 
 contact_note: >
-  C234, Department of Electrical Engineering, Indian Institute of Science, CV Raman Avenue, Malleshwaram, Bengaluru 560012
+  BM4.141 EPFL STI LIB, Station 17, CH-1015 Lausanne, Switzerland
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification

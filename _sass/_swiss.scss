@@ -1,161 +1,180 @@
 /*******************************************************************************
- * Modern Swiss-style overrides with Apple-inspired refinements
+ * Swiss grid aesthetic — EPFL red + CIBM blue/cyan
+ * Minimal, functional, squared.
+ *
+ * Typography rule:
+ *   text-transform: uppercase → navbar brand + nav links + section h1 labels ONLY.
+ *   Everything else: normal case, modest letter-spacing.
  ******************************************************************************/
 
-/* Overall typographic rhythm */
+/* ─── Top accent bar ───────────────────────────────────────────────────────── */
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--global-theme-color);
+  z-index: 9999;
+}
+
+/* ─── Typographic rhythm ───────────────────────────────────────────────────── */
 body {
-  font-weight: 300;
+  font-size: 15px;
+  font-weight: 400;
   letter-spacing: 0.01em;
-  line-height: 1.7;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  letter-spacing: 0.04em;
-  line-height: 1.2;
+p {
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.01em;
+  line-height: 1.15;
   font-weight: 500;
 }
 
-/* Content width and breathing room */
+/* ─── Container ────────────────────────────────────────────────────────────── */
 .container {
   max-width: $max-content-width;
-  padding-top: 2.5rem;
-  padding-bottom: 4rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.75rem;
 }
 
-/* Modern frosted glass navigation bar - Apple inspired */
+/* ─── Navbar ───────────────────────────────────────────────────────────────── */
 .navbar {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  background: rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid var(--global-divider-color);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
-  min-height: 36px;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  min-height: 34px;
+  border-radius: 0 !important;
 }
 
 html[data-theme="dark"] .navbar {
-  background: rgba(29, 29, 31, 0.72);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.95);
+  border-bottom: 1px solid var(--global-divider-color);
 }
 
+/* Uppercase is appropriate for short navbar labels only */
 .navbar-brand {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  transition: opacity 0.2s ease;
-}
-
-.navbar-brand:hover {
-  opacity: 0.7;
+  letter-spacing: 0.1em;
 }
 
 .navbar-nav .nav-link {
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.25rem 0.6rem !important;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem !important;
+  transition: color 0.15s ease;
 }
 
-.navbar-nav .nav-link:hover {
-  opacity: 0.7;
+/* Active nav link: solid underline */
+.navbar-nav .nav-item.active > .nav-link {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0.6rem;
+    right: 0.6rem;
+    height: 2px;
+    background: var(--global-theme-color);
+  }
 }
 
-/* Modern cards with subtle depth */
-.card,
-.post-list li {
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), 
-              box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
-}
-
-.card {
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 252, 1) 100%);
-}
-
-html[data-theme="dark"] .card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, rgba(38, 38, 40, 1) 0%, rgba(32, 32, 34, 1) 100%);
-}
-
-/* Page/post container: narrow column with strong grid */
-.post {
-  max-width: 54rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
+/* ─── Post header ──────────────────────────────────────────────────────────── */
 .post-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .post-title {
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-bottom: 1rem;
-  position: relative;
-  background: linear-gradient(135deg, var(--global-text-color) 0%, var(--global-text-color-light) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.post-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.75rem;
-  width: 2.5rem;
-  height: 2px;
-  background: linear-gradient(90deg, var(--global-theme-color) 0%, rgba(227, 6, 19, 0.4) 100%);
-  border-radius: 1px;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.25rem;
 }
 
 .post-header .desc,
 .post-header .post-description {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--global-text-color-light);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  margin-top: 0.4rem;
 }
 
-/* Section headings inside articles */
-.post article h2,
-.post-content h2 {
+/* ─── Article section headings ─────────────────────────────────────────────── */
+.post article h2:not([class]),
+.post-content h2:not([class]) {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+/* About page section headings (news, posts, selected pubs) */
+.post article > h2 {
   font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--global-text-color);
 }
 
-/* Section labels like 'Publications', 'Projects' as Swiss blocks */
+/* ─── Cards — flat, squared ────────────────────────────────────────────────── */
+.card {
+  border-radius: 0 !important;
+  border: 1px solid var(--global-divider-color);
+  background: var(--global-bg-color);
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--global-cibm-color);
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+}
+
+html[data-theme="dark"] .card {
+  border: 1px solid var(--global-divider-color);
+  background: var(--global-bg-color);
+}
+
+/* ─── Section labels (Publications, Projects, News page h1) ─────────────────── */
+/* These are short category labels — uppercase is intentional here */
 .publications h1,
 .projects h1,
 .news h1 {
-  font-size: 1rem;
-  letter-spacing: 0.18em;
-  margin-top: 0;
-  margin-bottom: 2rem;
-  position: relative;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+  position: relative;
 }
 
 .publications h1::before,
@@ -164,30 +183,29 @@ html[data-theme="dark"] .card {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -0.75rem;
+  bottom: -0.65rem;
   width: 3rem;
   height: 2px;
   background: var(--global-theme-color);
 }
 
-/* Publication entries as clean stacked text */
+/* ─── Publications ─────────────────────────────────────────────────────────── */
 .publications {
-  margin-top: 3rem;
-}
-
-.publications ol.bibliography {
   margin-top: 2rem;
 }
 
+.publications ol.bibliography {
+  margin-top: 1rem;
+}
+
 .publications ol.bibliography li {
-  border-bottom: 1px solid var(--global-divider-color);
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.35rem;
 }
 
 .publications ol.bibliography li .title {
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .publications ol.bibliography li .author,
@@ -196,92 +214,270 @@ html[data-theme="dark"] .card {
   color: var(--global-text-color-light);
 }
 
-/* Publication action buttons - refined with subtle gradients */
+/* Publication buttons — flat, squared, normal case */
 .publications .links a.btn {
-  border-radius: 6px;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.1);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(248, 248, 250, 1) 100%);
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 0.25rem 0.65rem;
-  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  border-radius: 0 !important;
+  border: 1px solid var(--global-divider-color);
+  background: transparent;
+  color: var(--global-text-color);
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  padding: 0.2rem 0.65rem;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  box-shadow: none;
 }
 
 html[data-theme="dark"] .publications .links a.btn {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: linear-gradient(180deg, rgba(60, 60, 62, 1) 0%, rgba(50, 50, 52, 1) 100%);
+  border-color: var(--global-divider-color);
+  background: transparent;
 }
 
 .publications .links a.btn:hover {
-  border-color: var(--global-theme-color);
-  color: var(--global-theme-color);
-  background: linear-gradient(180deg, rgba(255, 248, 248, 1) 0%, rgba(255, 245, 245, 1) 100%);
-  box-shadow: 0 2px 6px rgba(227, 6, 19, 0.15);
-  transform: translateY(-1px);
+  border-color: var(--global-cibm-color);
+  color: var(--global-cibm-color);
+  background: var(--global-cibm-color-light);
+  box-shadow: none;
+  transform: none;
 }
 
 html[data-theme="dark"] .publications .links a.btn:hover {
-  background: linear-gradient(180deg, rgba(70, 50, 52, 1) 0%, rgba(60, 45, 47, 1) 100%);
+  background: var(--global-cibm-color-light);
 }
 
-/* Blog index: very flat list */
+/* Publication abbr badge — squared */
+.publications ol.bibliography li .abbr abbr {
+  border-radius: 0 !important;
+}
+
+/* ─── Blog list ─────────────────────────────────────────────────────────────── */
 .post-list li {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  border-radius: 0 !important;
+  box-shadow: none;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
 }
 
 .post-list .post-meta,
 .post-list .post-tags {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  color: var(--global-text-color-light);
 }
 
-/* Links: smooth color transitions */
+/* ─── Blockquotes ───────────────────────────────────────────────────────────── */
+blockquote {
+  border-radius: 0 !important;
+  border-left: 2px solid var(--global-cibm-color);
+  background: var(--global-cibm-color-light);
+  box-shadow: none;
+}
+
+/* ─── Buttons — squared, flat ───────────────────────────────────────────────── */
+.btn {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent;
+  border: 1px solid var(--global-divider-color);
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    border-color: var(--global-theme-color);
+    color: var(--global-theme-color);
+  }
+
+  &:active {
+    transform: none !important;
+  }
+}
+
+html[data-theme="dark"] .btn {
+  background: transparent;
+  border-color: var(--global-divider-color);
+
+  &:hover {
+    border-color: var(--global-theme-color);
+  }
+}
+
+/* ─── CV buttons ────────────────────────────────────────────────────────────── */
+a.btncv {
+  border-radius: 0 !important;
+}
+
+/* ─── CV card ───────────────────────────────────────────────────────────────── */
+.cv .card {
+  border-radius: 0 !important;
+  box-shadow: none;
+  border: 1px solid var(--global-divider-color);
+  background: var(--global-bg-color);
+}
+
+/* CV section headings — subtle left accent */
+.cv h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--global-theme-color);
+}
+
+ul.timeline li::before {
+  background: var(--global-divider-color);
+}
+
+span.badge-toc {
+  border-radius: 0 !important;
+}
+
+/* ─── Code blocks ───────────────────────────────────────────────────────────── */
+pre {
+  border-radius: 0 !important;
+}
+
+code {
+  border-radius: 0 !important;
+}
+
+/* ─── Pagination ────────────────────────────────────────────────────────────── */
+.pagination .page-item .page-link {
+  border-radius: 0 !important;
+}
+
+/* ─── Footer ────────────────────────────────────────────────────────────────── */
+footer.sticky-bottom {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  background: transparent;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+html[data-theme="dark"] footer.sticky-bottom {
+  background: transparent;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+/* ─── Links ─────────────────────────────────────────────────────────────────── */
 a {
   text-decoration: none;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  transition: color 0.15s ease;
 }
 
 a:hover {
   text-decoration: none;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
-/* Footer - refined with subtle gradient */
-footer.sticky-bottom {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: linear-gradient(180deg, rgba(250, 250, 252, 0) 0%, rgba(245, 245, 247, 0.5) 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+/* ─── Selection — CIBM cyan ─────────────────────────────────────────────────── */
+::selection {
+  background: rgba(0, 160, 212, 0.2);
+  color: var(--global-text-color);
 }
 
-html[data-theme="dark"] footer.sticky-bottom {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(20, 20, 22, 0.5) 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+/* ─── Focus states ──────────────────────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--global-cibm-color);
+  outline-offset: 2px;
+  border-radius: 0 !important;
 }
 
-/* Smooth scroll behavior */
+/* ─── CIBM affiliation badge ────────────────────────────────────────────────── */
+.affiliation-cibm {
+  color: var(--global-cibm-color);
+  font-weight: 500;
+}
+
+/* ─── Smooth scroll ─────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection color */
-::selection {
-  background: rgba(227, 6, 19, 0.15);
-  color: var(--global-text-color);
+.page-margin-deco {
+  display: none;
 }
 
-/* Focus states for accessibility */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--global-theme-color);
-  outline-offset: 2px;
-  border-radius: 4px;
+/* ─── One-page section structure ───────────────────────────────────────────── */
+.page-section {
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.section-label {
+  font-size: 0.68rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--global-text-color-light) !important;
+  margin: 0 !important;
+  padding-left: 0.65rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--global-theme-color);
+  }
+}
+
+.contact-section-label {
+  margin-bottom: 0.85rem !important;
+}
+
+.section-more-link {
+  font-size: 0.72rem;
+  color: var(--global-text-color-light);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--global-theme-color);
+    opacity: 1;
+  }
+}
+
+/* Remove extra top margin from publications/news divs inside page sections */
+.page-section .publications {
+  margin-top: 0;
+}
+
+/* ─── Contact section ───────────────────────────────────────────────────────── */
+.contact-address {
+  font-size: 0.82rem;
+  color: var(--global-text-color-light);
+  margin-bottom: 0.2rem;
+}
+
+.contact-email {
+  font-size: 0.82rem;
+  margin-bottom: 0.65rem;
+}
+
+.contact-social {
+  .social {
+    text-align: left;
+
+    .contact-icons {
+      font-size: 1.4rem;
+    }
+  }
 }

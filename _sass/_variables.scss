@@ -22,6 +22,12 @@ $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
 $yellow-color: #efcc00 !default;
 
+// CIBM Colors
+$cibm-blue-dark: #003466 !default;
+$cibm-blue: #0077B5 !default;
+$cibm-cyan: #00A0D4 !default;
+$cibm-cyan-light: lighten($cibm-cyan, 45%);
+
 $grey-color: #828282 !default;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark: #1c1c1d;

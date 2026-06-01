@@ -38,11 +38,14 @@ horizontal: false
 
 .category-header {
   color: var(--global-text-color);
-  border-bottom: 2px solid var(--global-theme-color);
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem !important;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem !important;
+  margin-top: 2.5rem !important;
+  border-bottom: 1px solid var(--global-divider-color);
+  padding-bottom: 0.5rem;
 }
 
 .projects-grid {
@@ -92,7 +95,6 @@ horizontal: false
   font-size: 0.85rem;
   font-weight: 600;
   min-width: fit-content;
-  text-transform: uppercase;
 }
 
 .project-link-icon {

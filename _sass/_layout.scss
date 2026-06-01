@@ -2,45 +2,43 @@
  * Content
  ******************************************************************************/
 
+// Font stack — Helvetica Neue on macOS, Arial on Windows, system sans-serif elsewhere
+$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 body {
-  padding-bottom: 70px;
+  padding-bottom: 40px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
-  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-family: $font-stack !important;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 66px;
-    font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+    font-family: $font-stack !important;
   }
 }
 
-/* Force Helvetica on all text elements */
-body, p, h1, h2, h3, h4, h5, h6, div, a, li, td, th, blockquote, input, button, select, textarea, pre, code, .post-title {
-  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+// Override MDB/Bootstrap Roboto on all text-bearing elements (not icon pseudo-elements)
+p, h1, h2, h3, h4, h5, h6,
+div, span, a, li, td, th,
+blockquote, input, button, select, textarea,
+pre, code, caption, label, legend,
+.navbar-brand, .nav-link, .dropdown-item,
+.card-title, .card-text, .card-body,
+.post-title, .post-description, .post-meta,
+.btn, .badge, .alert, .modal,
+.list-group-item, .form-control, .form-label {
+  font-family: $font-stack !important;
 }
 
 .post-title {
-  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
-  font-weight: 600 !important;
-}
-
-/* Handle spans carefully to avoid breaking icons */
-span:not([class*="fa"]):not([class*="ai"]):not([class*="icon"]):not([class*="material-icons"]) {
-  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: 400 !important;
 }
 
 body.fixed-top-nav {
-  // Add some padding for the nav-bar (reduced for thinner navbar).
   padding-top: 40px;
 }
 
 body.sticky-bottom-footer {
-  // Remove padding below footer.
   padding-bottom: 0;
 }
 
@@ -54,17 +52,3 @@ body.sticky-bottom-footer {
     width: 100%;
   }
 }
-
-// TODO: redefine content layout.
-
-/******************************************************************************
- * Publications
- ******************************************************************************/
-
-// TODO: redefine publications layout.
-
-/*****************************************************************************
-* Projects
-*****************************************************************************/
-
-// TODO: redefine projects layout.

@@ -15,10 +15,17 @@
   --global-distill-app-color: #{$grey-color};
   --global-divider-color: rgba(0, 0, 0, 0.08);
   --global-card-bg-color: #{$white-color};
-  
-  /* Subtle gradients for modern depth */
-  --global-bg-gradient: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
-  --global-surface-gradient: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 252, 1) 100%);
+
+  /* CIBM secondary palette */
+  --global-cibm-color: #{$cibm-blue};
+  --global-cibm-color-dark: #{$cibm-blue-dark};
+  --global-cibm-color-light: rgba(0, 119, 181, 0.08);
+  --global-cibm-cyan: #{$cibm-cyan};
+  --global-dual-gradient: linear-gradient(90deg, #{$red-color} 0%, #{$cibm-cyan} 100%);
+  --global-dual-gradient-soft: linear-gradient(90deg, #{$red-color} 0%, #{$cibm-blue} 100%);
+
+  --global-bg-gradient: #ffffff;
+  --global-surface-gradient: #ffffff;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -65,10 +72,17 @@ html[data-theme="dark"] {
   --global-distill-app-color: #{$grey-color-light};
   --global-divider-color: rgba(255, 255, 255, 0.08);
   --global-card-bg-color: #{$grey-900};
-  
-  /* Subtle gradients for modern depth - dark mode */
-  --global-bg-gradient: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
-  --global-surface-gradient: linear-gradient(180deg, rgba(38, 38, 40, 1) 0%, rgba(32, 32, 34, 1) 100%);
+
+  /* CIBM secondary palette - dark mode */
+  --global-cibm-color: #{$cibm-cyan};
+  --global-cibm-color-dark: #{$cibm-blue};
+  --global-cibm-color-light: rgba(0, 160, 212, 0.12);
+  --global-cibm-cyan: #{$cibm-cyan};
+  --global-dual-gradient: linear-gradient(90deg, #{$red-color} 0%, #{$cibm-cyan} 100%);
+  --global-dual-gradient-soft: linear-gradient(90deg, #{$red-color} 0%, #{$cibm-blue} 100%);
+
+  --global-bg-gradient: #000000;
+  --global-surface-gradient: #0a0a0a;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

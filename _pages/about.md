@@ -17,7 +17,7 @@ social: false # includes social icons at the bottom of the page
 ---
 
 <p style="text-align: justify;">
-I am a postdoctoral researcher at the <a href="https://bigwww.epfl.ch/" target="_blank" rel="noopener">Biomedical Imaging Group, EPFL</a> and the <a href="https://cibm.ch" target="_blank" rel="noopener" class="affiliation-cibm"> CIBM Centre d'Imagerie Biomedicale</a> Signal Processing, Mathematical Imaging Group with <a href="https://bigwww.epfl.ch/unser/" target="_blank" rel="noopener">Prof. Michaël Unser</a>. Previously, I was with the Department of Electrical Engineering, Indian Institute of Science, with <a href="https://spectrum.ee.iisc.ac.in/" target="_blank" rel="noopener" class="affiliation-cibm">Prof. Chandra Sekhar Seelamantula</a>.
+I am a postdoctoral researcher at the <a href="https://bigwww.epfl.ch/" target="_blank" rel="noopener">Biomedical Imaging Group, EPFL</a> and the <a href="https://cibm.ch" target="_blank" rel="noopener" class="affiliation-cibm"> CIBM Centre d'Imagerie Biomedicale</a> Signal Processing EPFL, Mathematical Imaging Section with <a href="https://bigwww.epfl.ch/unser/" target="_blank" rel="noopener">Prof. Michaël Unser</a>. Previously, I was with the Department of Electrical Engineering, Indian Institute of Science, with <a href="https://spectrum.ee.iisc.ac.in/" target="_blank" rel="noopener" class="affiliation-cibm">Prof. Chandra Sekhar Seelamantula</a>.
 </p>
 
 <div class="about-tl">

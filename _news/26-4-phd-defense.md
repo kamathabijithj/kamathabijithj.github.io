@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I have successfully passed my PhD thesis defense!
+I successfully defended my PhD thesis!

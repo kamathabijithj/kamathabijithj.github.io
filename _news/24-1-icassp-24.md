@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Three papers accepted at ICASSP 2024, Seoul! 
+Our work new line of work on neuromorphic unlimited sampling will be presented at IEEE ICASSP 2024, Seoul!

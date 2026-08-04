@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Starting as a postdoctoral researcher at CIBM and EPFL.
+Beginning a new chapter as a postdoctoral researcher at CIBM and EPFL.

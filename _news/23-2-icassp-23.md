@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper has been accepted at ICASSP 2023 in Greece!
+Our work on multichannel time-encoding has been accepted at ICASSP 2023 in Greece!

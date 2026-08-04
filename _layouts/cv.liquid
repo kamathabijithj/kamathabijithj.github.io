@@ -2,24 +2,16 @@
 layout: default
 ---
 {% unless site.data.resume %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
+  <div class="post academic-inner-page cv-page">
+    <header class="academic-hero cv-hero">
+      <div class="academic-hero-copy">
+        <h1 class="academic-name">{{ page.title }}</h1>
         {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cv-pdf-link"
-            title="Download PDF CV"
-            ><i class="fa-solid fa-file-pdf"></i>
-          </a>
+          <nav class="academic-actions" aria-label="Curriculum vitae download">
+            <a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer">Download PDF <span aria-hidden="true">↓</span></a>
+          </nav>
         {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
+      </div>
     </header>
 
     <article>
@@ -54,24 +46,16 @@ layout: default
     </article>
   </div>
 {% else %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
+  <div class="post academic-inner-page cv-page">
+    <header class="academic-hero cv-hero">
+      <div class="academic-hero-copy">
+        <h1 class="academic-name">{{ page.title }}</h1>
         {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="cv-pdf-link"
-            title="Download PDF CV"
-            ><i class="fa-solid fa-file-pdf"></i>
-          </a>
+          <nav class="academic-actions" aria-label="Curriculum vitae download">
+            <a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}" target="_blank" rel="noopener noreferrer">Download PDF <span aria-hidden="true">↓</span></a>
+          </nav>
         {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
+      </div>
     </header>
 
     <article>
@@ -88,7 +72,7 @@ layout: default
             <div class="cv-section-header">
               <h3 class="cv-section-title">
                 <i class="cv-section-icon {% if data[0] == 'basics' %}fas fa-user{% elsif data[0] == 'education' %}fas fa-graduation-cap{% elsif data[0] == 'work' %}fas fa-briefcase{% elsif data[0] == 'publications' %}fas fa-file-alt{% elsif data[0] == 'awards' %}fas fa-trophy{% elsif data[0] == 'skills' %}fas fa-code{% elsif data[0] == 'volunteer' %}fas fa-hands-helping{% elsif data[0] == 'projects' %}fas fa-project-diagram{% else %}fas fa-circle{% endif %}"></i>
-                {{ data[0] | capitalize }}
+                {% if data[0] == 'basics' %}Profile{% else %}{{ data[0] | capitalize }}{% endif %}
               </h3>
             </div>
             <div class="cv-section-content">

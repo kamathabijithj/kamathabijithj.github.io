@@ -3,49 +3,46 @@ layout: default
 ---
 
 <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+  <article class="academic-home">
+    <header id="top" class="academic-hero">
+      <div class="academic-hero-copy">
+        <p class="academic-kicker">{{ page.subtitle }}</p>
+        <h1 class="academic-name">{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</h1>
+        <p class="academic-role">Postdoctoral researcher at EPFL</p>
+        <p class="academic-affiliation">
+          <a href="https://bigwww.epfl.ch/" target="_blank" rel="noopener">Biomedical Imaging Group</a>
+          <span aria-hidden="true">/</span>
+          <a href="https://cibm.ch" target="_blank" rel="noopener">CIBM</a>
+          <span aria-hidden="true">/</span>
+          Lausanne, Switzerland
+        </p>
+        <nav class="academic-actions" aria-label="Academic profiles and contact">
+          <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a href="https://orcid.org/{{ site.orcid_id }}" target="_blank" rel="noopener">ORCID <span aria-hidden="true">↗</span></a>
+          <a href="{{ '/assets/pdf/cv.pdf' | relative_url }}">CV <span aria-hidden="true">↓</span></a>
+          <a href="mailto:{{ site.email | encode_email }}">Email</a>
+        </nav>
+      </div>
 
-  <article>
-    <section id="about">
-      {% if page.profile %}
-        <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-          {% if page.profile.image %}
-            {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-            {% if page.profile.image_circular %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-            {% else %}
-              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-            {% endif %}
-            {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-        30vw, 95vw"{% endcapture %}
-            {%
-              include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-              cache_bust=true
-            %}
-          {% endif %}
-          {% if page.profile.more_info %}
-            <div class="more-info">{{ page.profile.more_info }}</div>
-          {% endif %}
+      {% if page.profile_image %}
+        <div class="academic-portrait">
+          {% assign profile_image_path = page.profile_image | prepend: 'assets/img/' %}
+          {% include figure.liquid loading="eager" path=profile_image_path class="img-fluid" sizes="(min-width: 768px) 280px, 62vw" alt="Portrait of Abijith J. Kamath" cache_bust=true %}
         </div>
       {% endif %}
+    </header>
 
-      <div class="clearfix">{{ content }}</div>
+    <section id="about" class="academic-introduction" aria-labelledby="about-heading">
+      <div class="academic-section-index">
+        <h2 id="about-heading">Profile</h2>
+      </div>
+      <div class="academic-prose">{{ content }}</div>
     </section>
 
     {% if page.news and site.announcements.enabled %}
       <section id="news" class="page-section">
         <div class="section-header">
-          <h2 class="section-label">News</h2>
+          <div class="academic-section-index"><h2 class="section-label">News</h2></div>
           <a class="section-more-link" href="{{ '/news/' | relative_url }}">all news →</a>
         </div>
         {% include news.liquid limit=true %}
@@ -55,7 +52,7 @@ layout: default
     {% if page.selected_papers %}
       <section id="research" class="page-section">
         <div class="section-header">
-          <h2 class="section-label">Research</h2>
+          <div class="academic-section-index"><h2 class="section-label">Selected work</h2></div>
           <a class="section-more-link" href="{{ '/publications/' | relative_url }}">all publications →</a>
         </div>
         {% include selected_papers.liquid %}
@@ -73,14 +70,14 @@ layout: default
     {% endif %}
 
     <section id="contact" class="page-section">
-      <h2 class="section-label contact-section-label">Contact</h2>
-      {% if site.contact_note %}
+      <div class="academic-section-index"><h2 class="section-label contact-section-label">Contact</h2></div>
+      <div class="contact-grid">
         <p class="contact-address">{{ site.contact_note }}</p>
-      {% endif %}
-      {% if site.email %}
-        <p class="contact-email"><a href="mailto:{{ site.email | encode_email }}">{{ site.email }}</a></p>
-      {% endif %}
-      <div class="contact-social">{% include social.liquid %}</div>
+        <div>
+          <p class="contact-email"><a href="mailto:{{ site.email | encode_email }}">{{ site.email }}</a></p>
+          <div class="contact-social">{% include social.liquid %}</div>
+        </div>
+      </div>
     </section>
   </article>
 </div>

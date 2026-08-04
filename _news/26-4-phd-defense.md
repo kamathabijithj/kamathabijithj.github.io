@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I successfully defended my PhD thesis!
+I successfully defended my PhD thesis titled *Neuromorphic Sampling --- Reconstruction Techniques and Imaging Applications*!
